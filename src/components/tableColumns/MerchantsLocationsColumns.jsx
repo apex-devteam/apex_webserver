@@ -6,10 +6,6 @@ export const COLUMNS = [
     {
         Header: "Merchant ID",
         accessor: "merchants_id",
-        // Cell:({cell}) => (
-        //     // console.log(cell)
-        //     <Link to={`/business-address-table/${cell.row.original.merchants_id}`}>{cell.value}</Link>
-        // )
     },
     {
         Header: "Business Name",
