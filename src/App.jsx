@@ -13,7 +13,6 @@ import HeaderLayout from './components/HeaderLayout'
 const App = () => {
   const { users } = useUserAuthContext()
   console.log(users)
-
   const router = createBrowserRouter([
     {
       element: <HeaderLayout/>,
@@ -41,6 +40,9 @@ const App = () => {
         },
         {
           path: '/administration',
+          loader: async () => {
+            return await merchantsService.getMerchants(users.id)
+          },
           element: <Administration/>
         },
 

@@ -7,5 +7,10 @@ const getAllUsers = async () => {
     return request.then(response => response.data);
 }
 
+const postUser = async (newUser) => {
+    const response = await axios.post(userUrl, newUser)
+    return response.data
+}
 
-export default { getAllUsers }; 
+
+export default { getAllUsers, postUser }; 
