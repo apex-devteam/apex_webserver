@@ -2,16 +2,16 @@ import axios from 'axios';
 const merchantUrl = "/api/merchants";
 
 const getMerchants = async (userId) => {
-    const response = await axios.get(`${merchantUrl}/${userId}`)
-    console.log(response.data)
-    return response.data;
+    try {
+        const response = await axios.get(`${merchantUrl}/${userId}`)
+        if (response.data.length === 0 || !response.data) {
+            throw Error("There seems to be no data associated with this!")
+        }
+        return response.data;
+    } catch (error) {
+        console.error("Error getting Merchants:", error)
+        throw error
+    }
 }
 
-// const showMerchants = async (userId) => {
-//     console.log(userId)
-//     const formatedId = {id: userId}
-//     const response = await axios.get(merchantUrl, formatedId)
-//     console.log(response.data)
-//     return response.data
-// }
 export default { getMerchants }

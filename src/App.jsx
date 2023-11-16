@@ -9,10 +9,11 @@ import merchantsService from './services/merchants'
 import salesService from './services/sales';
 import SalesTable from './components/SalesTable'
 import HeaderLayout from './components/HeaderLayout'
+import ErrorPage from './components/ErrorPage'
 
 const App = () => {
   const { users } = useUserAuthContext()
-  console.log(users)
+  // console.log(users)
   const router = createBrowserRouter([
     {
       element: <HeaderLayout/>,
@@ -34,9 +35,13 @@ const App = () => {
           path: "/business-address-table/:id",
           loader: async ({params}) => {
             const sales = await salesService.getSales(params.id)
+            if (sales.length === 0 || !sales.data) {
+              throw Error("There seems to be no data associated with this!")
+          }
             return sales
            },
-          element: <SalesTable />
+          element: <SalesTable />,
+          errorElement: <ErrorPage />
         },
         {
           path: '/administration',

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import userService from "../services/users"
 const Administration = () => {
@@ -12,9 +12,9 @@ const Administration = () => {
     const [locations, setLocations] = useState([])
     const merchants = useLoaderData()
 
-    useEffect(() => {
-        console.log('locations: ', locations)
-    }, [locations])
+    // useEffect(() => {
+    //     // console.log('locations: ', locations)
+    // }, [locations])
 
     const handleCreateUser = async (event) => {
         event.preventDefault();
@@ -32,9 +32,21 @@ const Administration = () => {
             locations
         }
         const result = await userService.postUser(newUser)
-        console.log(newUser)
-        console.log(locations)
         console.log("result: ", result)
+        setFirstname("")
+        setLastname("")
+        setMiddleInitials("")
+        setUsername("")
+        setPassword("")
+        setPasswordConfirm("")
+        
+        let newLocations = {}
+        for (const merchant of merchants) {
+            console.log(merchant)
+            newLocations[merchant.merchant_id] = false
+        }
+        setLocations(newLocations)
+
     }
 
     const handleCheckBox = (event) => {
@@ -74,7 +86,7 @@ const Administration = () => {
                             <legend>Select Business Location(s)</legend>
                             {merchants.map(merchant => 
                                 <div key={merchant.merchant_id}>
-                                    <input type="checkbox" name={merchant.merchant_id} checked={locations[merchant.merchant_id]} onChange={handleCheckBox}/> 
+                                    <input  type="checkbox" name={merchant.merchant_id} checked={locations[merchant.merchant_id]} onChange={handleCheckBox}/> 
                                     <label htmlFor={merchant.street_address1}>{merchant.street_address1} {merchant.state} {merchant.zip_code}</label>
                                 </div>
                             )}
