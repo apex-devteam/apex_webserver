@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate} from "react-router-dom";
 import userService from "../services/users"
 const Administration = () => {
 
@@ -11,6 +11,8 @@ const Administration = () => {
     const [passwordConfirm, setPasswordConfirm] = useState("")
     const [locations, setLocations] = useState([])
     const merchants = useLoaderData()
+
+    const navigate = useNavigate()
 
     // useEffect(() => {
     //     // console.log('locations: ', locations)
@@ -53,6 +55,7 @@ const Administration = () => {
         setLocations({...locations, [event.target.name] : event.target.checked})
     }
     return (
+        <div>
             <fieldset>
                 <form onSubmit={handleCreateUser}>
                     <fieldset>
@@ -95,6 +98,8 @@ const Administration = () => {
                     </fieldset>
                 </form>
             </fieldset>
+            <button onClick={() => navigate("/link-user")}>Connect Pre-existing user to Business</button>
+        </div>
     )
 }
 export default Administration;

@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Rubik', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -16,11 +17,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #5b9cda;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #367ce4;
 }
 
 body {
@@ -29,6 +30,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  justify-content: center;
 }
 
 h1 {
@@ -74,4 +76,4 @@ table {
 
 th, td {
   border: 1px solid white
-}
+} 

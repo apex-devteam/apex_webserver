@@ -50,6 +50,7 @@ const LoginForm = () => {
                     />
                 </div>
                 <button type="submit">Login</button>
+                <button>Dont have an account?</button>
             </form>
         </div>
     )

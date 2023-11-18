@@ -4,7 +4,7 @@ const userUrl = '/api/users';
 const getAllUsers = async () => {
     const request = await axios.get(userUrl);
     console.log(request)
-    return request.then(response => response.data);
+    return request.data;
 }
 
 const postUser = async (newUser) => {

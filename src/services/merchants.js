@@ -14,4 +14,17 @@ const getMerchants = async (userId) => {
     }
 }
 
-export default { getMerchants }
+const linkMerchantWithUser = async (data) => {
+    try {
+        const response = await axios.post(`${merchantUrl}/link-with-user`, data)
+        return response
+    } catch(error) {
+        //DUPLICATE DATA
+        if (error.response.status === 409) {
+            console.error(error)
+            return error.response.status
+        }
+    }
+}
+
+export default { getMerchants, linkMerchantWithUser }

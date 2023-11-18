@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import LoginForm from "../components/LoginForm";
 export const UserAuthContext = createContext(null);
 import PropTypes from 'prop-types'
+// import { Link } from 'react-router-dom' 
 
 export const useUserAuthContext = () => useContext(UserAuthContext)    
 
@@ -20,7 +21,12 @@ const AuthProvider = ({ children }) => {
 
     return (
         <UserAuthContext.Provider value={{ users, setUsers, setLogin }}>
-            {!login && <LoginForm />}
+            {!login && (
+                <div>
+                    <LoginForm />
+                    {/* <Link></Link> */}
+                </div>
+            )}
             {
                 login && 
                     <>
