@@ -34,13 +34,12 @@ const LinkUser = () => {
 
     return (
         <div>
-            <h2>Link User with Business Location</h2>
+            <h2>Link User with Merchant Location</h2>
             {!showError ? 
                 <p>Select the user and business location. Once linked, the user can sign in to see information for that business location.</p> : 
                 <p style={{color: "red"}}>User and location is already linked.</p>
             }
-            
-                <form onSubmit={handleLink}>
+                <form onSubmit={handleLink} className="user-link-form">
                     <h3>Users</h3>
                     <select size={`${allData[1].length}`} onChange={(event) => setSelectedUser(event.target.value)}>
                         {allData[1].map(user => (

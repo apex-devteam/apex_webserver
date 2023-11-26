@@ -2,7 +2,8 @@ import { createContext, useContext, useState, useEffect } from "react";
 import LoginForm from "../components/LoginForm";
 export const UserAuthContext = createContext(null);
 import PropTypes from 'prop-types'
-// import { Link } from 'react-router-dom' 
+import IdlePrompt from "../components/IdlePrompt";
+import '../App.css'
 
 export const useUserAuthContext = () => useContext(UserAuthContext)    
 
@@ -10,7 +11,7 @@ const AuthProvider = ({ children }) => {
     const [users, setUsers] = useState([])
     const [login, setLogin] = useState(false)
 
-    useEffect(()=> {
+    useEffect (() => {
         const loggedUserJSON = window.localStorage.getItem("userLoggedIn")
         if  (loggedUserJSON) {
             const user = JSON.parse(loggedUserJSON)
@@ -24,12 +25,12 @@ const AuthProvider = ({ children }) => {
             {!login && (
                 <div>
                     <LoginForm />
-                    {/* <Link></Link> */}
                 </div>
             )}
             {
                 login && 
                     <>
+                        <IdlePrompt/>
                         {children}
                     </>
             }

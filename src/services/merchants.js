@@ -27,4 +27,9 @@ const linkMerchantWithUser = async (data) => {
     }
 }
 
-export default { getMerchants, linkMerchantWithUser }
+const postOneMerchantGroup = async (data) => {
+    const response = await axios.post(`${merchantUrl}/create-new-merchants`, data)
+    return response
+}
+
+export default { getMerchants, linkMerchantWithUser, postOneMerchantGroup }

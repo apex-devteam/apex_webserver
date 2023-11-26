@@ -1,5 +1,5 @@
 import './App.css'
-import Administration from './components/Administrator'
+import MerchantAdmin from './components/MerchantAdmin'
 import MerchantsLocationsTable from './components/MerchantsLocationsTable'
 import HomePage from './components/HomePage'
 import { useUserAuthContext } from "./providers/AuthProvider"
@@ -12,6 +12,8 @@ import HeaderLayout from './components/HeaderLayout'
 import ErrorPage from './components/ErrorPage'
 import LinkUser from './components/LinkUser'
 import CreateAccountForm from './components/CreateAccountForm'
+import DeveloperAdmin from './components/DeveloperAdmin'
+import DeveloperAdminTable from './components/DeveloperTable'
 
 const App = () => {
   const { users } = useUserAuthContext()
@@ -45,11 +47,13 @@ const App = () => {
           // errorElement: <ErrorPage />
         },
         {
-          path: '/administration',
+          path: '/merchant-administration',
           loader: async () => {
-            return await merchantsService.getMerchants(users.id)
+            const getMerchants = await merchantsService.getMerchants(users.id)
+            console.log(getMerchants)
+            return getMerchants;
           },
-          element: <Administration/>
+          element: <MerchantAdmin/>
         },
         {
           path: '/link-user',
@@ -62,8 +66,16 @@ const App = () => {
           element: <LinkUser/>
         },
         {
+          path: '/developer-administration',
+          element: <DeveloperAdmin/>
+        },
+        {
           path: "/create-new-account",
           element: <CreateAccountForm />
+        },
+        {
+          path: "/developer-table",
+          element: <DeveloperAdminTable/>
         }
       ],
     }

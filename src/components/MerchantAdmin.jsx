@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLoaderData, useNavigate} from "react-router-dom";
 import userService from "../services/users"
-const Administration = () => {
+const MerchantAdmin = () => {
 
     const [firstname, setFirstname] = useState("")
     const [lastname, setLastname] = useState("")
@@ -14,9 +14,6 @@ const Administration = () => {
 
     const navigate = useNavigate()
 
-    // useEffect(() => {
-    //     // console.log('locations: ', locations)
-    // }, [locations])
 
     const handleCreateUser = async (event) => {
         event.preventDefault();
@@ -90,7 +87,7 @@ const Administration = () => {
                             {merchants.map(merchant => 
                                 <div key={merchant.merchant_id}>
                                     <input  type="checkbox" name={merchant.merchant_id} checked={locations[merchant.merchant_id]} onChange={handleCheckBox}/> 
-                                    <label htmlFor={merchant.street_address1}>{merchant.street_address1} {merchant.state} {merchant.zip_code}</label>
+                                    <label htmlFor={merchant.street_address1}> {merchant.merchant_name}: {merchant.street_address1} {merchant.state} {merchant.zip_code}</label>
                                 </div>
                             )}
                         </fieldset>
@@ -102,4 +99,4 @@ const Administration = () => {
         </div>
     )
 }
-export default Administration;
+export default MerchantAdmin;

@@ -1,5 +1,7 @@
 import { useReducer } from "react";
 
+// COMPONENT NOT IN ANY OF THE RENDERED PAGES
+// USES REDUCER METHOD FOR FORMS. 
 const initialForm = {
     firstName: "",
     lastName: "",
