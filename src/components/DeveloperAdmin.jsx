@@ -1,11 +1,14 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import merchantsService from "../services/merchants"
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 //USE REACT HOOK FORM HERE
 const DeveloperAdmin = () => {
     const [isSuccessful, setIsSuccessful] = useState(false);
     const states = [ 'AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY'];
+    const navigate = useNavigate()
+    
     const { 
         control,
         register, 
@@ -147,6 +150,7 @@ const DeveloperAdmin = () => {
                     <button type="submit">Create</button>
                 </div>
             </form>
+            <button onClick={() => navigate("/developer-table")}>Merchant Table</button>
         </div>
     );
 };

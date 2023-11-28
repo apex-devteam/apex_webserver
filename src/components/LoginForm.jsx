@@ -26,39 +26,46 @@ const LoginForm = () => {
     }
 
     return (
-        <div>
-            <div>
-                You must be logged in to access data
-            </div>
-            <form onSubmit={handleLogin}>
-                <div>
-                    Username: 
+        <div className="w-full max-w-lg">
+            
+            <form onSubmit={handleLogin} className="shadow-md bg-gray-700 rounded px-8 pt-6 pb-8 mb-4 text-white font-bold">
+                <div className="pb-3.5 text-xl">
+                    You must be logged in to access this website
+                </div>
+                <div className="mb-4 flex text-lg">
+                    <label className="pr-2">
+                        Username:      
+                    </label>
                     <input
                         value={username} 
                         type='text'
                         onChange={({target}) => setUsername(target.value)}
+                        className="shadow appearance-none border rounded w-full py-1 px-3 leading-tight focus:shadow-outline focus:outline-none"
+                        placeholder="Username"
                     />
                     
                 </div>
-                <div>
-                    Password:  
+                <div className="mb-4 flex text-lg">
+                    <label className="pr-2">
+                        Password:  
+                    </label>
                     <input 
                         value={password}
                         type="password"
                         onChange={({target}) => setPassword(target.value)}
-
+                        className="shadow appearance-none border rounded w-full py-1 px-3 leading-tight focus:shadow-outline focus:outline-none"
+                        placeholder="*****************"
                     />
                 </div>
-                <button type="submit">Login</button>
-                <button>Dont have an account?</button>
+                <button
+                    type="submit"
+                    className="bg-blue-800 hover:bg-blue-900 font-bold focus:outline-none focus:shadow-1"
+                >
+                    Sign In
+                </button>
             </form>
         </div>
     )
 }
-
-// LoginForm.propTypes = {
-//     setLogin: PropTypes.func,
-//     setUsers: PropTypes.func
-// }
 
 export default LoginForm;

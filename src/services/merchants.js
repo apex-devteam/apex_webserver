@@ -32,4 +32,15 @@ const postOneMerchantGroup = async (data) => {
     return response
 }
 
-export default { getMerchants, linkMerchantWithUser, postOneMerchantGroup }
+const getDeveloperAdminMerchants = async () => {
+    const response = await axios.get(`${merchantUrl}/developer-admin-merchant-table`)
+    return response.data
+}
+
+const deleteMerchant = async (id) => {
+    console.log("in axios", id)
+    const response = await axios.delete(`${merchantUrl}/delete-merchant`, {data: id}) 
+    return response
+}
+
+export default { getMerchants, linkMerchantWithUser, postOneMerchantGroup, getDeveloperAdminMerchants, deleteMerchant }

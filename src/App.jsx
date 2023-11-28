@@ -67,7 +67,8 @@ const App = () => {
         },
         {
           path: '/developer-administration',
-          element: <DeveloperAdmin/>
+          element: <DeveloperAdmin/>,
+
         },
         {
           path: "/create-new-account",
@@ -75,7 +76,10 @@ const App = () => {
         },
         {
           path: "/developer-table",
-          element: <DeveloperAdminTable/>
+          element: <DeveloperAdminTable/>,
+          loader: async () => {
+            return await merchantsService.getDeveloperAdminMerchants()
+          }
         }
       ],
     }
