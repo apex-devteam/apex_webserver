@@ -4,10 +4,12 @@ import { Outlet } from "react-router-dom";
 const HeaderLayout = () => {
     return (
       <>
-        <header>
+        <nav className="bg-gray-800 text-white p-4 top-0 w-full">
           <Navbar/>
-        </header>
-        <Outlet/>
+        </nav>
+        <div className="mt-16 p-4 flex justify-center items-center">
+          <Outlet/>
+        </div>
       </>
     )
 }
