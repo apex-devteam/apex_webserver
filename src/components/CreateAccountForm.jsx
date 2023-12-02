@@ -50,32 +50,44 @@ const CreateAccountForm = () => {
             <fieldset>
                 <form onSubmit={(event) => handleCreateAccount(event, state)}>
                     <fieldset>
-                        <h3>Create new User for Location</h3>
+                        <h3 className="form-title">Create new User for Location</h3>
                         <div>
-                            First Name: 
-                            <input type="text" name="firstName" value={state.firstName} onChange={(event) => handleTextInput(event)} required/>
+                            <label className="form-label">
+                                First Name: 
+                            </label>
+                            <input type="text" name="firstName" value={state.firstName} onChange={(event) => handleTextInput(event)} required className="form-input"/>
                         </div>
                         <div>
-                            Last Name: 
-                            <input type="text" name="lastName" value={state.lastName}  onChange={(event) => handleTextInput(event)} required/>
+                            <label className="form-label">
+                                Last Name: 
+                            </label>
+                            <input type="text" name="lastName" value={state.lastName}  onChange={(event) => handleTextInput(event)} required className="form-input"/>
                         </div>
                         <div>
-                            Middle Initials: 
-                            <input type="text" maxLength={1} name="middleInitials"value={state.middleInitials} onChange={(event) => handleTextInput(event)}/>
+                            <label className="form-label">
+                                Middle Initials: 
+                            </label>
+                            <input type="text" maxLength={1} name="middleInitials"value={state.middleInitials} onChange={(event) => handleTextInput(event)} className="form-input"/>
                         </div>
                         <div>
-                            Username: 
-                            <input type="text" name="username" value={state.username} onChange={(event) => handleTextInput(event)} required/>
+                            <label className="form-label">
+                                Username: 
+                            </label>
+                            <input type="text" name="username" value={state.username} onChange={(event) => handleTextInput(event)} required className="form-input"/>
                         </div>
                         <div>
-                            Password: 
-                            <input type="password" name="password" value={state.password} onChange={(event) => handleTextInput(event)} required/>
+                            <label className="form-label">
+                                Password: 
+                            </label>
+                            <input type="password" name="password" value={state.password} onChange={(event) => handleTextInput(event)} required className="form-input"/>
                         </div>
                         <div>
-                            Confirm Password: 
-                            <input type="password" name="passwordConfirm" value={state.passwordConfirm} onChange={(event) => handleTextInput(event)} required/>
+                            <label className="form-label">
+                                Confirm Password: 
+                            </label>
+                            <input type="password" name="passwordConfirm" value={state.passwordConfirm} onChange={(event) => handleTextInput(event)} required className="form-input"/>
                         </div>
-                        <button type="submit">Create</button>
+                        <button className="btn"type="submit">Create</button>
                     </fieldset>
                 </form>
             </fieldset>

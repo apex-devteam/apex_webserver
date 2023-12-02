@@ -1,9 +1,9 @@
 const HomePage = () => {
 
     return (
-        <div>
-            HOME SWEET HOME...
-        </div>
+        <h1>
+            TEMPORARY HOME PAGE
+        </h1>
     )
 }
 

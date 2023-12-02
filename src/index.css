@@ -3,38 +3,57 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn {
+    @apply px-4 py-2 text-white rounded bg-blue-600 hover:bg-blue-900 font-bold duration-500 cursor-pointer text-base my-1 focus:outline-white focus:outline-1
+  }
+
+  .secondary-btn {
+    @apply bg-red-700 hover:bg-red-800
+  }
+
+  .dialog-background {
+    @apply fixed inset-0 bg-black/50
+  }
+
+  .dialog-box {
+    @apply fixed inset-0 flex w-screen items-center justify-center p-5 
+  }
+
+  .dialog-styling {
+    @apply relative p-6 rounded-md bg-blue-950 border 
+  }
+
+  .form-title {
+    @apply flex justify-center items-center text-xl underline mb-1
+  }
+
+  .form-label {
+    @apply block uppercase tracking-wide text-xs font-bold mb-2
+  }
+
+  .form-input {
+    @apply appearance-none block w-full bg-gray-700 border rounded py-2 px-4 mb-3 leading-tight
+  }
+  
+  .form-select {
+    @apply block w-full bg-gray-700 border rounded py-2 px-4 mb-3 leading-tight
+  }
+}
 :root {
   font-family: 'Rubik', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* line-height: 1.5; */
+  /* font-weight: 400; */
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -moz-osx-font-smoothing: grayscale; */
   -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #5b9cda;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #367ce4;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  justify-content: center;
 }
 
 h1 {
@@ -42,40 +61,16 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+
 }
 
 table {
-  min-width: 1200px;
+  min-width: 100%;
 }
 
 th, td {

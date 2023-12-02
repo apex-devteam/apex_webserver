@@ -1,8 +1,7 @@
 const Footer = () => {
     return (
-        <div>
-            <span>Temporary Footer</span>
-            <span>Apex POS Systems</span>
+        <div className="flex justify-center items-center bg-gray-800 p-4 w-full">
+            <div>Temporary Footer</div>
         </div>
     )
 }

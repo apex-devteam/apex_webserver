@@ -56,30 +56,29 @@ const App = () => {
           element: <MerchantAdmin/>
         },
         {
-          path: '/link-user',
+          path: '/developer-administration',
+          element: <DeveloperAdmin/>,
+        },
+        {
+          path: "/developer-administration/create-new-account",
+          element: <CreateAccountForm />
+        },
+        {
+          path: "/developer-administration/developer-table",
+          element: <DeveloperAdminTable/>,
           loader: async () => {
-            const merchants = await merchantsService.getMerchants(users.id)
+            return await merchantsService.getDeveloperAdminMerchants()
+          }
+        },
+        {
+          path: '/developer-administration/link-user',
+          loader: async () => {
+            const merchants = await merchantsService.getDeveloperAdminMerchants()
             const allUsers = await usersServer.getAllUsers()
             const allData = [merchants, allUsers]
             return allData
           },
           element: <LinkUser/>
-        },
-        {
-          path: '/developer-administration',
-          element: <DeveloperAdmin/>,
-
-        },
-        {
-          path: "/create-new-account",
-          element: <CreateAccountForm />
-        },
-        {
-          path: "/developer-table",
-          element: <DeveloperAdminTable/>,
-          loader: async () => {
-            return await merchantsService.getDeveloperAdminMerchants()
-          }
         }
       ],
     }

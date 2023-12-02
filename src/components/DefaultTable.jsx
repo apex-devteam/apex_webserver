@@ -56,37 +56,41 @@ const DefaultTable = ({columns, data}) => {
           })}
         </tbody>
       </table>
-      <div>
-        <span>
-          Page{' '}
-          <strong>
-            {pageIndex + 1} of {pageOptions.length}
-          </strong>
-          {' '}
-        </span>
-        <span>
-          | Go to page: {' '}
-          <input 
-            type='number' 
-            defaultValue={pageIndex + 1} 
-            onChange={event => {
-                const pageNumber = event.target.value ? Number(event.target.value) - 1 : 0
-                gotoPage(pageNumber)
-            }}
-            style={{width: "50px"}}
-          />
-        </span>
-        <select value={pageSize} onChange={event => setPageSize(Number(event.target.value))}>
-          {[10,25,50].map(pageSize => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
-          ))}
-        </select>
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{`<<`}</button>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{`>>`}</button>
+      <div className="flex justify-between items-center">
+        <div>
+          <span>
+            Page{' '}
+            <strong>
+              {pageIndex + 1} of {pageOptions.length}
+            </strong>
+            {' '}
+          </span>
+          <span>
+            | Go to page: {' '}
+            <input 
+              type='number' 
+              defaultValue={pageIndex + 1} 
+              onChange={event => {
+                  const pageNumber = event.target.value ? Number(event.target.value) - 1 : 0
+                  gotoPage(pageNumber)
+              }}
+              style={{width: "50px"}}
+            />
+          </span>
+          <select value={pageSize} onChange={event => setPageSize(Number(event.target.value))}>
+            {[10,25,50].map(pageSize => (
+              <option key={pageSize} value={pageSize}>
+                Show {pageSize}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <button className="btn" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{`<<`}</button>
+          <button className="btn ml-1" onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
+          <button className="btn mx-1" onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
+          <button className="btn" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{`>>`}</button>
+        </div>
       </div>
     </>
   );

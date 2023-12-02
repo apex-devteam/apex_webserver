@@ -2,6 +2,7 @@ import { useState } from "react";
 import loginService from "../services/login"
 import { useUserAuthContext } from "../providers/AuthProvider";
 
+
 const LoginForm = () => {
 
     const { setLogin, setUsers } = useUserAuthContext(); 
@@ -28,38 +29,38 @@ const LoginForm = () => {
     return (
         <div className="w-full max-w-lg">
             
-            <form onSubmit={handleLogin} className="shadow-md bg-gray-700 rounded px-8 pt-6 pb-8 mb-4 text-white font-bold">
-                <div className="pb-3.5 text-xl">
+            <form onSubmit={handleLogin} className="shadow-lg bg-gray-700 rounded px-10 py-8 m-5 text-white font-bold">
+                <div className="form-title">
                     You must be logged in to access this website
                 </div>
-                <div className="mb-4 flex text-lg">
-                    <label className="pr-2">
+                <div className="mb-4 text-lg">
+                    <label className="form-label">
                         Username:      
                     </label>
                     <input
                         value={username} 
                         type='text'
                         onChange={({target}) => setUsername(target.value)}
-                        className="shadow appearance-none border rounded w-full py-1 px-3 leading-tight focus:shadow-outline focus:outline-none"
+                        className="form-input"
                         placeholder="Username"
                     />
                     
                 </div>
-                <div className="mb-4 flex text-lg">
-                    <label className="pr-2">
+                <div className="mb-4 text-lg">
+                    <label className="form-label">
                         Password:  
                     </label>
                     <input 
                         value={password}
                         type="password"
                         onChange={({target}) => setPassword(target.value)}
-                        className="shadow appearance-none border rounded w-full py-1 px-3 leading-tight focus:shadow-outline focus:outline-none"
+                        className="form-input"
                         placeholder="*****************"
                     />
                 </div>
                 <button
                     type="submit"
-                    className="bg-blue-800 hover:bg-blue-900 font-bold focus:outline-none focus:shadow-1"
+                    className="btn"
                 >
                     Sign In
                 </button>

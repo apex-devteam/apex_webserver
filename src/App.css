@@ -28,7 +28,9 @@ header {
   /* border: 2px solid rgb(255, 255, 255); */
   transition: 0.2s all;
   border-radius: 5px;
-  
+}
+.navbar-button:hover {
+  text-decoration: underline;
 }
 
 .navbar-button:active {
@@ -45,10 +47,10 @@ select {
   overflow-y: auto;
 }
 
-.idlePrompt {
+/* .idlePrompt {
   position: absolute;
   z-index: 99;
-}
+} */
 
 /* input {
 

@@ -9,14 +9,11 @@ const LinkUser = () => {
     const [showError, setShowError] = useState(false)
 
     const allData = useLoaderData()
-
+    console.log(allData)
     
     const handleLink = async (event) => {
 
         event.preventDefault()
-        console.log(selectedUser)
-        console.log(selectedLocation)
-
         const data = {
             userId: selectedUser,
             merchantId: selectedLocation
@@ -29,6 +26,8 @@ const LinkUser = () => {
             setTimeout(() => {
                 setShowError(false)
             }, 8000)
+        } else if(response.data.affectedRows === 1) {
+            alert(`Link between user and location is successful!`)
         }
     }
 
@@ -51,7 +50,7 @@ const LinkUser = () => {
                     <h3>Business Locations</h3>
                     <select size={`${allData[0].length}`} onChange={(event) => setSelectedLocation(event.target.value)}>
                         {allData[0].map((location) => (
-                            <option key={location.merchant_id} value={location.merchant_id}>
+                            <option key={location.merchants_id} value={location.merchants_id}>
                                 {location.merchant_name} {location.street_address1} {location.city}
                             </option>
                         ))}

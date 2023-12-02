@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useUserAuthContext } from "../providers/AuthProvider";
 import { useState } from "react";
-import { LogoutPopup } from "./LogoutPopup";
+import { LogoutPopup } from "./popups/LogoutPopup";
 
 const Navbar = () => {
     const { users, setUsers, setLogin } = useUserAuthContext()
@@ -17,7 +17,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className = "navbar">
+        <nav className = "flex items-center justify-between flex-wrap p-6">
             <div className = "navbar-right">
                 <Link className="navbar-button" to="/">Home</Link>
                 <Link className="navbar-button" to="/business-address-table">Reports</Link>
@@ -26,9 +26,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-left">
                 {users ? (
-                    <div>
-                        <em>Hello {users.user}</em>
-                        <button onClick={() => setOpenLogout(true)}>Logout</button>
+                    <div className="flex justify-between items-center">
+                        <div className="mr-2">Hello {users.user}</div>
+                        <button className="btn"onClick={() => setOpenLogout(true)}>Logout</button>
                         <LogoutPopup openLogout={openLogout} setOpenLogout={setOpenLogout} handleLogout={handleLogout}/>
                     </div>
                 ) : (
@@ -37,7 +37,7 @@ const Navbar = () => {
                     </>
                 )}
             </div>
-        </div>
+        </nav>
     )
 }
 

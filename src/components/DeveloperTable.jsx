@@ -2,7 +2,7 @@ import { useLoaderData } from 'react-router-dom'
 import { useMemo, useState } from 'react';
 import { COLUMNS } from './tableColumns/DeveloperMerchantColumns';
 import DefaultTable from './DefaultTable';
-import EditMerchantPopup from './EditMerchantPopup';
+import EditMerchantPopup from './popups/EditMerchantPopup';
 import DeleteMerchantPopup from './popups/DeleteMerchantPopup';
 
 const DeveloperTable = () => {
@@ -20,7 +20,7 @@ const DeveloperTable = () => {
                     return (
                         <>
                             <button
-                                className="bg-amber-800 hover:bg-amber-900 border-2 hover:border-white" 
+                                className="btn m-1" 
                                 onClick={() => {
                                     console.log("cell", cell.row.original)
                                     setEditPopup(true)
@@ -28,10 +28,11 @@ const DeveloperTable = () => {
                                     
                                 }}
                             
-                            >Edit
+                            >
+                                Edit
                             </button>
                             <button 
-                                className="bg-red-700 hover:bg-red-900"
+                                className="btn secondary-btn m1"
                                 onClick={() => {
                                     setDeletePopup(true)
                                     console.log("merchant_id:", cell.row.original.merchants_id)
@@ -40,7 +41,7 @@ const DeveloperTable = () => {
                             >
                                 Delete
                             </button>
-                            </>
+                        </>
                     )
                 }
             },]
@@ -51,6 +52,7 @@ const DeveloperTable = () => {
     return (
         <>
             <div>
+                <h1 className="flex justify-center mb-8 capitalize">Developer Table</h1>
                 <DeleteMerchantPopup deletePopup={deletePopup} setDeletePopup={setDeletePopup} idToDelete={idToDelete}/>
                 <EditMerchantPopup editPopup={editPopup} setEditPopup={setEditPopup} selectedData={selectedData}/>
                 {DefaultTable({columns, data})}

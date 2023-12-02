@@ -10,9 +10,9 @@ const MerchantsLocationsTable = () => {
     const data = useMemo(() => merchantData, [merchantData])
 
 return (
-    <>
+    <div>
         {DefaultTable({columns, data})}
-    </>
+    </div>
 )
 }
 

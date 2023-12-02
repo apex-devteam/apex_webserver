@@ -22,7 +22,7 @@ const DeleteMerchantPopup = ({deletePopup, setDeletePopup, idToDelete}) => {
             <div className="dialog-background">
                 <div className="dialog-box">
                 <Dialog.Panel className="dialog-styling">
-                    <Dialog.Title>Are you sure you want to delete {}</Dialog.Title>
+                    <Dialog.Title>Are you sure you want to delete this?</Dialog.Title>
                     <button 
                         className="btn secondary-btn m-1"
                         onClick={handleDeleteMerchant}
