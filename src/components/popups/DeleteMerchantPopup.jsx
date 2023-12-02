@@ -19,17 +19,22 @@ const DeleteMerchantPopup = ({deletePopup, setDeletePopup, idToDelete}) => {
             open={deletePopup} 
             onClose={() => {}}
         >
-            <div className="fixed inset-0 bg-black/30">
-                <div className="flex justify-center items-center min-h-full p-4">
-                <Dialog.Panel className="mx-auto max-w-sm rounded bg-slate-600 p-2">
+            <div className="dialog-background">
+                <div className="dialog-box">
+                <Dialog.Panel className="dialog-styling">
                     <Dialog.Title>Are you sure you want to delete {}</Dialog.Title>
                     <button 
-                        className="bg-red-700 hover:bg-red-800"
+                        className="btn secondary-btn m-1"
                         onClick={handleDeleteMerchant}
                     >
                         Confirm Delete
                     </button>
-                    <button onClick={() => setDeletePopup(false)}>Cancel</button>
+                    <button 
+                        onClick={() => setDeletePopup(false)}
+                        className="btn m-1"
+                    >
+                        Cancel
+                    </button>
                 </Dialog.Panel>
                 </div>
             </div>
