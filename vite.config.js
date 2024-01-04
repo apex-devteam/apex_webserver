@@ -9,6 +9,7 @@ export default defineConfig({
       "/api": {
         target: 'http://146.190.41.182:3000',
         changeOrigin: true,
+        secure: false,
         onProxyReq(proxyReq) {
           // Log a message when the proxy request is made
           console.log('Proxy request made:', proxyReq.method, proxyReq.path);
