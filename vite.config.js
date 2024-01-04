@@ -8,7 +8,15 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: 'http://146.190.41.182:3000',
-        changeOrigin: true
+        changeOrigin: true,
+        onProxyReq(proxyReq) {
+          // Log a message when the proxy request is made
+          console.log('Proxy request made:', proxyReq.method, proxyReq.path);
+        },
+        onProxyRes(proxyRes) {
+          // Log a message when the proxy response is received
+          console.log('Proxy response received:', proxyRes.statusCode);
+        },
       }
     }
   }
