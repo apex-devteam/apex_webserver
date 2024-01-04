@@ -10,13 +10,16 @@ export default defineConfig({
         target: 'http://146.190.41.182:3000',
         changeOrigin: true,
         secure: false,
-        onProxyReq(proxyReq) {
-          // Log a message when the proxy request is made
-          console.log('Proxy request made:', proxyReq.method, proxyReq.path);
-        },
-        onProxyRes(proxyRes) {
-          // Log a message when the proxy response is received
-          console.log('Proxy response received:', proxyRes.statusCode);
+        configure: (proxy, _options) => {
+          proxy.on('error', (err, _req, _res) => {
+            console.log('proxy error', err);
+          });
+          proxy.on('proxyReq', (proxyReq, req, _res) => {
+            console.log('Sending Request to the Target:', req.method, req.url);
+          });
+          proxy.on('proxyRes', (proxyRes, req, _res) => {
+            console.log('Received Response from the Target:', proxyRes.statusCode, req.url);
+          });
         },
       }
     }
